@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bienvenido | Admin</title>
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--Hoja de Estilos-->
+    <link rel="stylesheet" href="assents/dashboard.css">
+    <!--Iconos-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <!--Menu Lateral-->
+  <div class="sidebar">
+    <div class="logo-details sidebar-button">
+      <i class='bx bxl-gmail'></i>
+      <span class="logo_name">onfortianos</span>
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class='bx bx-home-smile'></i>
+            <span class="links_name">Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-book-alt'></i>
+            <span class="links_name">Libros</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-run'></i>
+            <span class="links_name">Prestados</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bxs-user-check'></i>
+            <span class="links_name">Administradores</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Configuración</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="#">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Cerrar Sesión</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+    <!--Texto + NameUser-->
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Bievenido Juan <!--Nombre con Php--></span>
+      </div>
+    </nav>
+
+<!--Tarjetas de Datos de la web-->
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Libros Registrados</div>
+            <div class="number">408</div>
+          </div>
+          <i class='bx bx-library icons'></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Libros Prestados</div>
+            <div class="number">38</div>
+           
+          </div>
+          <i class='bx bx-book-reader icons'></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Administradores</div>
+            <div class="number">12</div>
+    
+          </div>
+          <i class='bx bxs-user-check icons'></i>
+        </div>
+      </div>
+  <!--Tabla-->
+  <main>
+    <button type="button" class="button blue mobile" id="cadastrarCliente">Nuevo Libro</button>
+    <table class="records">
+        <thead>
+            <tr>
+                <th>Id-Usuario</th>
+                <th>ISBN</th>
+                <th>Autor</th>
+                <th>Tema</th>
+                <th>Carrera</th>
+                <th>Fecha de Registro</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>304</td>
+                <td>Juan Liam</td>
+                <td>Coca</td>
+                <td>Medicina</td>
+                <td>12/08/2021</td>
+                <td>
+                    <button type="button" class="button green" ><i class='bx bx-edit'></i></button>
+                    <button type="button" class="button red"><i class='bx bx-trash'></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Nuevo Libro</h2>
+                <span class="modal-close" id="modalClose">&#10006;</span>
+            </header>
+            <form class="modal-form">
+                <input type="text" class="modal-field" placeholder="ISBN">
+                <input type="email" class="modal-field" placeholder="Autor">
+                <input type="text" class="modal-field" placeholder="Tema">
+                <select name="carreras" id="lang" class="modal-field">
+                  <option value="carrera" disabled>Elije la Carrera</option>
+                  <option value="php">Medicina</option>
+                  <option value="java">Sistemas</option>
+                  <option value="golang">Mecanica</option>
+                </select>
+            </form>
+            <footer class="modal-footer">
+                <button class="button green">Crear</button>
+            </footer>
+        </div>
+    </div>
+</main>
+
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bxl-gmail" ,"bxl-gmail");
+}else
+  sidebarBtn.classList.replace("bxl-gmail", "bxl-gmail");
+}
+
+'use strict'
+
+const openModal = () => document.getElementById('modal')
+    .classList.add('active')
+
+const closeModal = () => document.getElementById('modal')
+    .classList.remove('active')
+
+document.getElementById('cadastrarCliente')
+    .addEventListener('click', openModal)
+
+document.getElementById('modalClose')
+    .addEventListener('click', closeModal)
+ </script>
+
+</body>
+</html>
+
